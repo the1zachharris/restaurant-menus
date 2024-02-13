@@ -9,15 +9,21 @@ describe('Restaurant and Menu Models', () => {
     /**
      * Runs the code prior to all tests
      */
+
+    let myRestaurants;
+    let myMenus;
     beforeAll(async () => {
         // the 'sync' method will create tables based on the model class
         // by setting 'force:true' the tables are recreated each time the 
         // test suite is run
         await sequelize.sync({ force: true });
+        myRestaurants = await Restaurant.bulkCreate(seedRestaurant);
+        myMenus = await Menu.bulkCreate(seedMenu);
     });
 
     test('can create a Restaurant', async () => {
         // TODO - write test
+        
         expect('NO TEST').toEqual('EXPECTED DATA')
     });
 
